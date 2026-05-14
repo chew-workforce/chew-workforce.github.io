@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recommended GitHub Pages structure | SkillCurrent</title>
+  <meta name="description" content="A live, evidence-first platform for comparing employer skill demand, curriculum skill supply, and credential pathways" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">SkillCurrent</a>
+      <div class="header-meta">
+        <span>Working publication draft for GitHub Pages</span>
+        <span>Updated 2026-05-14</span>
+      </div>
+      <nav class="site-nav" aria-label="Primary"><a href="index.html">Home</a><a href="premise.html">1. Premise</a><a href="opportunity-gap.html">2. Opportunity Gap</a><a href="approach.html">3. Approach</a><a href="results.html">4. Results</a><a href="dashboard.html">Dashboard</a><a href="implications.html">5. Implications</a><a href="methodology.html">6. Methodology</a><a href="site-structure.html" class="active">7. Site Structure</a><a href="overclaim.html">8. Overclaim</a><a href="work-plan.html">9. Work Plan</a><a href="references.html">References</a></nav>
+    </header>
+    <main class="page-content">
+      
+<section class="hero compact">
+  <div class="hero-copy">
+    <p class="eyebrow">Publication section</p>
+    <h1>Recommended GitHub Pages structure</h1>
+  </div>
+</section>
+<section class="content-block">
+  <h2 id="7-1-navigation">7.1 Navigation</h2>
+<ol>
+<li><strong>Home</strong> — thesis, key findings, interactive summary.</li>
+<li><strong>Premise</strong> — why skill alignment matters now.</li>
+<li><strong>Opportunity Gap</strong> — why current systems are fragmented.</li>
+<li><strong>Methodology</strong> — pipeline, models, validation, limitations.</li>
+<li><strong>Results</strong> — interactive charts and narrative interpretation.</li>
+<li><strong>Dashboard</strong> — filterable skill demand/supply/credential views.</li>
+<li><strong>Data Dictionary</strong> — definitions, fields, run IDs, scoring formulas.</li>
+<li><strong>Validation</strong> — audit design, metrics, quality flags.</li>
+<li><strong>Implications</strong> — policy, training, credential, learner pathways.</li>
+<li><strong>References</strong> — external sources only.</li>
+</ol>
+<h2 id="7-2-chart-inventory">7.2 Chart inventory</h2>
+<div class="table-wrap"><table><thead><tr><th>Chart</th><th>Purpose</th><th>Data artifact</th></tr></thead><tbody><tr><td>Skill demand treemap</td><td>Show employer demand by family and canonical skill</td><td><code>canonical_skill_demand.csv</code></td></tr><tr><td>Curriculum sunburst</td><td>Show taught skill hierarchy</td><td><code>curriculum_skill_hierarchy.csv</code></td></tr><tr><td>Instruction-depth heatmap</td><td>Show taught/practiced/assessed/mentioned</td><td><code>curriculum_instruction_depth.csv</code></td></tr><tr><td>Demand-supply matrix</td><td>Identify high-demand / low-supply gaps</td><td><code>skill_gap_pressure.csv</code></td></tr><tr><td>Credential pathway graph</td><td>Link skills to credentials and providers</td><td><code>credential_skill_edges.csv</code></td></tr><tr><td>Employer tier demand bars</td><td>Weight demand by strategic employer tier</td><td><code>employer_tier_skill_counts.csv</code></td></tr><tr><td>Evidence lineage table</td><td>Allow audit of aggregate claims</td><td><code>public_evidence_samples.csv</code></td></tr></tbody></table></div>
+<h2 id="7-3-public-data-governance">7.3 Public data governance</h2>
+<p>The public repository should include:</p>
+<ul>
+<li>aggregate counts;</li>
+<li>de-identified examples where allowed;</li>
+<li>run metadata;</li>
+<li>prompt versions;</li>
+<li>model versions;</li>
+<li>scoring formulas;</li>
+<li>chart-ready CSV/JSON files;</li>
+<li>limitations and validation notes.</li>
+</ul>
+<p>The public repository should exclude:</p>
+<ul>
+<li>proprietary curriculum source documents;</li>
+<li>raw job descriptions if licensing or privacy is uncertain;</li>
+<li>employer-sensitive internal annotations;</li>
+<li>personal data;</li>
+<li>unredacted evidence spans from restricted documents.</li>
+</ul>
+<hr />
+</section>
+
+    </main>
+  </div>
+</body>
+</html>

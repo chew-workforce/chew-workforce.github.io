@@ -1,0 +1,354 @@
+:root {
+  --bg: #f4efe6;
+  --surface: rgba(255, 251, 245, 0.84);
+  --surface-strong: #fffaf2;
+  --ink: #16211f;
+  --muted: #556664;
+  --line: rgba(22, 33, 31, 0.12);
+  --accent: #0b7a75;
+  --accent-2: #e9682c;
+  --shadow: 0 24px 60px rgba(15, 29, 28, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(233, 104, 44, 0.16), transparent 30%),
+    radial-gradient(circle at top right, rgba(11, 122, 117, 0.18), transparent 28%),
+    linear-gradient(180deg, #f7f0e4 0%, #efe6d8 100%);
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+iframe {
+  width: 100%;
+  min-height: 28rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+code {
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.35rem;
+  background: rgba(11, 122, 117, 0.08);
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #172523;
+  color: #f6f0e6;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--accent-2);
+  background: rgba(233, 104, 44, 0.08);
+  border-radius: 0 1rem 1rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface-strong);
+}
+
+th,
+td {
+  padding: 0.85rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+}
+
+.site-shell {
+  width: min(1200px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 4rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.75rem;
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 249, 240, 0.84);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  width: fit-content;
+  font-family: "Newsreader", serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-nav {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+}
+
+.site-nav a {
+  white-space: nowrap;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.site-nav a.active,
+.site-nav a:hover {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), #0d4e72);
+}
+
+.page-content {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.35rem;
+}
+
+.hero,
+.content-block,
+.feature-card,
+.figure-card,
+.nav-card {
+  border: 1px solid var(--line);
+  border-radius: 1.6rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 1.25rem;
+  padding: clamp(1.3rem, 2vw, 2rem);
+}
+
+.hero.compact {
+  grid-template-columns: 1fr;
+}
+
+.hero-copy h1 {
+  margin: 0.2rem 0 0.8rem;
+  font-family: "Newsreader", serif;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.hero.compact h1 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+}
+
+.eyebrow,
+.section-label {
+  margin: 0;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+.lede {
+  max-width: 60ch;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.hero-panel {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(180deg, rgba(11, 122, 117, 0.08), rgba(233, 104, 44, 0.08));
+}
+
+.cta {
+  width: fit-content;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-2), #cb4f18);
+}
+
+.content-block {
+  padding: 1.2rem clamp(1.1rem, 2vw, 1.8rem);
+}
+
+.content-block h2,
+.content-block h3 {
+  scroll-margin-top: 12rem;
+}
+
+.content-block h2 {
+  margin-top: 2rem;
+  font-family: "Newsreader", serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.content-block h3 {
+  margin-top: 1.8rem;
+  font-size: 1.15rem;
+}
+
+.content-block p,
+.content-block li {
+  color: #223330;
+  line-height: 1.7;
+}
+
+.feature-grid,
+.figure-grid,
+.dashboard-grid,
+.nav-card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.feature-grid,
+.dashboard-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.figure-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.nav-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.feature-card,
+.figure-card,
+.nav-card {
+  padding: 1rem;
+}
+
+.feature-card h2,
+.feature-card h3 {
+  margin: 0.3rem 0 0.7rem;
+  font-family: "Newsreader", serif;
+}
+
+.figure-card figcaption {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.nav-card {
+  display: grid;
+  gap: 0.3rem;
+  text-decoration: none;
+}
+
+.nav-card span {
+  font-family: "Newsreader", serif;
+  font-size: 1.25rem;
+}
+
+.nav-card strong {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.reference-item {
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.reference-item:first-of-type {
+  border-top: 0;
+}
+
+.reference-key {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(11, 122, 117, 0.12);
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+.footnote-ref {
+  color: var(--accent-2);
+  font-size: 0.8em;
+}
+
+@media (max-width: 780px) {
+  .site-shell {
+    width: min(100vw - 1rem, 1200px);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  iframe {
+    min-height: 22rem;
+  }
+}

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results | SkillCurrent</title>
+  <meta name="description" content="A live, evidence-first platform for comparing employer skill demand, curriculum skill supply, and credential pathways" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">SkillCurrent</a>
+      <div class="header-meta">
+        <span>Working publication draft for GitHub Pages</span>
+        <span>Updated 2026-05-14</span>
+      </div>
+      <nav class="site-nav" aria-label="Primary"><a href="index.html">Home</a><a href="premise.html">1. Premise</a><a href="opportunity-gap.html">2. Opportunity Gap</a><a href="approach.html">3. Approach</a><a href="results.html" class="active">4. Results</a><a href="dashboard.html">Dashboard</a><a href="implications.html">5. Implications</a><a href="methodology.html">6. Methodology</a><a href="site-structure.html">7. Site Structure</a><a href="overclaim.html">8. Overclaim</a><a href="work-plan.html">9. Work Plan</a><a href="references.html">References</a></nav>
+    </header>
+    <main class="page-content">
+      
+<section class="hero compact">
+  <div class="hero-copy">
+    <p class="eyebrow">Publication section</p>
+    <h1>Results</h1>
+  </div>
+</section>
+<section class="content-block">
+  <blockquote>
+<p>This section is intentionally structured for Codex and the analysis scripts to fill with final run outputs. The prose below is written so that charts can be inserted without rewriting the argument.</p>
+</blockquote>
+<h2 id="4-1-demand-side-skill-signal-from-job-descriptions">4.1 Demand-side skill signal from job descriptions</h2>
+<p>The demand-side analysis begins with active job descriptions from the target employer ecosystem. After scope filtering and text enrichment, the pipeline extracts skill evidence from job descriptions, normalizes equivalent phrasing, and aggregates demand by canonical skill and skill family.</p>
+<p><strong>Insert Figure 1: Demand-side skill family distribution</strong> <em>Interactive stacked bar or treemap showing canonical skills by family, weighted by job count, employer tier, and posting count.</em></p>
+<p><strong>Draft interpretation:</strong></p>
+<p>The demand-side signal should be interpreted as a structured view of employer language, not a full census of all workforce needs. Job descriptions capture hiring-visible skills. They underrepresent tacit skills, internal incumbent-worker gaps, and skills taught informally on the job. They may overrepresent generic requirements repeated across templates. For that reason, the pipeline includes scope filters, boilerplate rejection, skill typing, coherence gates, and source lineage checks.</p>
+<p>The most analytically useful outputs are not simply the most frequent skills. They are:</p>
+<ul>
+<li>skills with high demand across multiple employers;</li>
+<li>skills concentrated in strategically important employer tiers;</li>
+<li>skills that appear across multiple job families;</li>
+<li>skills with high demand but weak curriculum or credential coverage;</li>
+<li>emerging technical skills with low current training coverage but strong evidence in job descriptions.</li>
+</ul>
+<p><strong>Data slots to fill:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Value</th><th>Source artifact</th></tr></thead><tbody><tr><td>Employers in scoped ecosystem</td><td><code>[Codex fill]</code></td><td><code>employer_network_summary.json</code></td></tr><tr><td>Job postings harvested</td><td><code>[Codex fill]</code></td><td><code>job_database.csv</code></td></tr><tr><td>Job descriptions with usable full text</td><td><code>[Codex fill]</code></td><td><code>job_database_text_enriched.csv</code></td></tr><tr><td>Granular skill candidates extracted</td><td><code>[Codex fill]</code></td><td><code>s1_extract.csv</code></td></tr><tr><td>Normalized skills after filtering</td><td><code>[Codex fill]</code></td><td><code>s2_normalized.csv</code></td></tr><tr><td>Canonical skills after graph/dedup</td><td><code>[Codex fill]</code></td><td><code>s8_final_canonical_skills.csv</code></td></tr><tr><td>Skill families</td><td><code>[Codex fill]</code></td><td><code>s8_final_families.csv</code></td></tr></tbody></table></div>
+<h2 id="4-2-supply-side-skill-signal-from-curriculum">4.2 Supply-side skill signal from curriculum</h2>
+<p>The curriculum-side analysis applies the same extraction and normalization logic to training materials. The critical difference is that curriculum evidence is classified by instructional mode. This allows the dashboard to distinguish skills that are actually taught and assessed from skills that appear only as context.</p>
+<p><strong>Insert Figure 2: Curriculum skill hierarchy sunburst</strong> <em>Skill family → canonical skill → instructional mode evidence.</em></p>
+<p><strong>Insert Figure 3: Canonical skill × instruction method heatmap</strong> <em>Rows: canonical skills. Columns: explicit instruction, guided practice, independent practice, assessed, mention-only. Values: normalized evidence proportions.</em></p>
+<p><strong>Draft interpretation:</strong></p>
+<p>Curriculum coverage should not be interpreted as binary. A skill may be present but weakly supported. A training program that explicitly teaches and assesses blueprint reading is different from a program that mentions drawings in a safety discussion. For credentialing, the strongest claims should come from skills with direct evidence of practice and assessment.</p>
+<p>This method can also identify underused curriculum assets. A program may already teach a skill demanded by employers, but the evidence may be buried in documents that are not visible to learners, employers, or credentialing bodies. In that case, the intervention is not necessarily new curriculum development; it may be better documentation, assessment alignment, modularization, or credential packaging.</p>
+<p><strong>Data slots to fill:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Value</th><th>Source artifact</th></tr></thead><tbody><tr><td>Curriculum source documents processed</td><td><code>[Codex fill]</code></td><td><code>curriculum_manifest.csv</code></td></tr><tr><td>Raw curriculum skill candidates</td><td><code>[Codex fill]</code></td><td><code>curriculum_s1_extract.csv</code></td></tr><tr><td>Normalized curriculum skills</td><td><code>[Codex fill]</code></td><td><code>curriculum_s2_normalized.csv</code></td></tr><tr><td>Canonical curriculum skills</td><td><code>[Codex fill]</code></td><td><code>curriculum_final_canonical_skills.csv</code></td></tr><tr><td>Skills with assessed evidence</td><td><code>[Codex fill]</code></td><td><code>instruction_depth_summary.csv</code></td></tr><tr><td>Skills that are mention-only</td><td><code>[Codex fill]</code></td><td><code>instruction_depth_summary.csv</code></td></tr></tbody></table></div>
+<h2 id="4-3-demand-supply-alignment">4.3 Demand-supply alignment</h2>
+<p>The central dashboard view compares demand-side canonical skills from job descriptions with supply-side canonical skills from curriculum.</p>
+<p><strong>Insert Figure 4: Demand vs. curriculum coverage matrix</strong> <em>X-axis: employer demand intensity. Y-axis: curriculum evidence depth. Bubble size: credential availability. Color: gap pressure.</em></p>
+<p><strong>Proposed core metric: Skill Gap Pressure</strong></p>
+<pre><code class="language-text">
+Gap Pressure(skill) = Demand Intensity(skill)
+                      × Strategic Weight(skill)
+                      × (1 - Curriculum Coverage(skill))
+                      × (1 - Credential Coverage(skill))
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><strong>Demand Intensity</strong> is based on job count, employer count, and source frequency.</li>
+<li><strong>Strategic Weight</strong> can include employer tier, supply-chain position, defense relevance, or regional priority.</li>
+<li><strong>Curriculum Coverage</strong> is weighted by instructional mode, with assessed and practiced skills weighted higher than mention-only evidence.</li>
+<li><strong>Credential Coverage</strong> reflects whether a recognizable credential or micro-credential validates the skill.</li>
+</ul>
+<p>This should be presented as a prioritization score, not an absolute truth. It is meant to guide review, not replace expert judgment.</p>
+<h2 id="4-4-credential-and-pathway-alignment">4.4 Credential and pathway alignment</h2>
+<p>The credential layer should answer four questions:</p>
+<ol>
+<li>Which high-demand skills already map to recognized credentials?</li>
+<li>Which skills are taught but not credentialed?</li>
+<li>Which credentials exist but are not clearly connected to local demand?</li>
+<li>Which high-pressure gaps are best addressed by micro-credentials, apprenticeships, incumbent-worker modules, or full program redesign?</li>
+</ol>
+<p><strong>Insert Figure 5: Credential pathway graph</strong> <em>Canonical skill → credential → provider → delivery modality.</em></p>
+<p>Credential matching should remain conservative. A credential should not be treated as covering a skill unless there is explicit evidence in its description, competency list, assessment objectives, or linked standards. Keyword overlap alone is insufficient.</p>
+<h2 id="4-5-method-of-instruction-breakdown">4.5 Method of instruction breakdown</h2>
+<p>Instruction mode is the bridge from skill extraction to credential readiness. A credential claim is strongest when curriculum evidence shows that a skill is:</p>
+<ol>
+<li>explicitly taught,</li>
+<li>practiced with guidance,</li>
+<li>practiced independently,</li>
+<li>assessed with observable criteria.</li>
+</ol>
+<p>A weak signal is a skill that appears only as a mention, example, heading, or safety aside.</p>
+<p><strong>Insert Figure 6: Instruction depth by skill family</strong> <em>Stacked bars showing assessed/practiced/explicit/mention-only evidence by family.</em></p>
+<p><strong>Draft interpretation:</strong></p>
+<p>The instruction-depth breakdown should be used to identify where a training provider already has the ingredients for a credential and where it has only topical exposure. This distinction is essential for employers. Employers do not merely need to know that a curriculum includes “metrology”; they need to know whether learners actually use calipers, micrometers, gauges, drawings, tolerances, and inspection documentation in assessed tasks.</p>
+<hr />
+<section class="feature-grid">
+  <article class="feature-card">
+    <p class="eyebrow">Demand Signal</p>
+    <h3>Canonical demand hierarchy</h3>
+    <p>Employer-demand structure from the job-description pipeline, embedded as an interactive hierarchy.</p>
+    <iframe src="assets/viz/jd/05_hierarchy_sunburst.html" title="Job demand hierarchy sunburst" loading="lazy"></iframe>
+  </article>
+  <article class="feature-card">
+    <p class="eyebrow">Translation Layer</p>
+    <h3>Granular to canonical sankey</h3>
+    <p>The Sankey view shows how extracted phrasing is consolidated into canonical skills and broader families.</p>
+    <iframe src="assets/viz/jd/06_granular_canonical_family_sankey.html" title="Granular to canonical skill sankey" loading="lazy"></iframe>
+  </article>
+</section>
+<section class="figure-grid">
+  <figure class="figure-card">
+    <img src="assets/viz/jd/01_canonical_demand_by_tier.png" alt="Canonical demand by employer tier" loading="lazy" />
+    <figcaption>Demand concentration by employer tier.</figcaption>
+  </figure>
+  <figure class="figure-card">
+    <img src="assets/viz/jd/04_demand_signal_scatter.png" alt="Demand signal scatter plot" loading="lazy" />
+    <figcaption>Demand intensity plotted against supporting evidence.</figcaption>
+  </figure>
+  <figure class="figure-card">
+    <img src="assets/viz/curriculum/03_canonical_skill_x_instruction_mode.png" alt="Instruction mode heatmap" loading="lazy" />
+    <figcaption>Curriculum instruction-depth evidence by canonical skill.</figcaption>
+  </figure>
+  <figure class="figure-card">
+    <img src="assets/viz/curriculum/04_ranked_canonical_skill_support.png" alt="Curriculum ranked canonical support" loading="lazy" />
+    <figcaption>Relative curriculum support across canonical skills.</figcaption>
+  </figure>
+</section>
+
+</section>
+
+    </main>
+  </div>
+</body>
+</html>

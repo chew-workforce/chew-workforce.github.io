@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Methodology | SkillCurrent</title>
+  <meta name="description" content="A live, evidence-first platform for comparing employer skill demand, curriculum skill supply, and credential pathways" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">SkillCurrent</a>
+      <div class="header-meta">
+        <span>Working publication draft for GitHub Pages</span>
+        <span>Updated 2026-05-14</span>
+      </div>
+      <nav class="site-nav" aria-label="Primary"><a href="index.html">Home</a><a href="premise.html">1. Premise</a><a href="opportunity-gap.html">2. Opportunity Gap</a><a href="approach.html">3. Approach</a><a href="results.html">4. Results</a><a href="dashboard.html">Dashboard</a><a href="implications.html">5. Implications</a><a href="methodology.html" class="active">6. Methodology</a><a href="site-structure.html">7. Site Structure</a><a href="overclaim.html">8. Overclaim</a><a href="work-plan.html">9. Work Plan</a><a href="references.html">References</a></nav>
+    </header>
+    <main class="page-content">
+      
+<section class="hero compact">
+  <div class="hero-copy">
+    <p class="eyebrow">Publication section</p>
+    <h1>Methodology</h1>
+  </div>
+</section>
+<section class="content-block">
+  <h2 id="6-1-study-design">6.1 Study design</h2>
+<p>SkillCurrent is a mixed computational and applied workforce research system. It combines:</p>
+<ul>
+<li>structured employer ecosystem definition;</li>
+<li>job posting collection and enrichment;</li>
+<li>local LLM-based skill extraction;</li>
+<li>embedding-assisted candidate retrieval;</li>
+<li>LLM semantic adjudication;</li>
+<li>graph-based hierarchy induction;</li>
+<li>curriculum instruction-depth scoring;</li>
+<li>credential candidate matching;</li>
+<li>dashboard publication;</li>
+<li>human validation and repair loops.</li>
+</ul>
+<p>The intended unit of analysis is the <strong>canonical skill</strong>, not the job title, course title, or credential title. Job titles and course titles are too coarse for curriculum alignment. Individual extracted phrases are too noisy. Canonical skills provide a middle layer: granular enough to be actionable, normalized enough to aggregate.</p>
+<h2 id="6-2-data-sources">6.2 Data sources</h2>
+<p>Public-facing publication should describe data sources at the appropriate level of detail:</p>
+<ol>
+<li><strong>Employer ecosystem sources:</strong> federal contracting records, employer career pages, job boards, and confirmed employer network metadata.</li>
+<li><strong>Job description corpus:</strong> active postings from scoped employers during the defined collection window.</li>
+<li><strong>Curriculum corpus:</strong> proprietary or partner-provided training documents, syllabi, modules, lesson plans, slides, assessment descriptions, and related materials.</li>
+<li><strong>Credential sources:</strong> Credential Engine, provider catalogs, industry credential descriptions, apprenticeship standards, and state-recognized credential lists.</li>
+</ol>
+<p>The public site should publish run metadata and aggregate outputs, not raw proprietary documents.</p>
+<h2 id="6-3-skill-extraction-model">6.3 Skill extraction model</h2>
+<p>The extraction model is constrained by rules:</p>
+<ul>
+<li>Extract only skills supported by source text.</li>
+<li>Prefer atomic verb-object statements.</li>
+<li>Reject topic labels that are not demonstrable skills.</li>
+<li>Reject vague abstractions unless a concrete action-object pair is recoverable.</li>
+<li>Preserve evidence text and source identifiers.</li>
+<li>Assign skill type and confidence.</li>
+<li>Quarantine ambiguous or weakly supported items.</li>
+</ul>
+<p>The model is not asked to invent future skills. It is asked to infer what is present in the source.</p>
+<h2 id="6-4-normalization-and-hierarchy-induction">6.4 Normalization and hierarchy induction</h2>
+<p>Normalization occurs only when skills are semantically equivalent or near-equivalent within a narrow operational meaning. The system avoids merging parent-child, tool-task, or related-but-distinct skills. Canonical skills are induced from normalized skills and must be the narrowest valid abstraction over their members. Skill families are induced from canonical skills and must avoid becoming generic bins.</p>
+<p>This is a key defensibility point. The system does not begin with a rigid taxonomy and force every skill into it. Instead, it induces structure from evidence and can later map the resulting skills to external frameworks such as O*NET, ESCO, Manufacturing USA, or Credential Engine.</p>
+<h2 id="6-5-validation-plan">6.5 Validation plan</h2>
+<p>The public methodology should include a validation plan with at least six checks:</p>
+<ol>
+<li><strong>Extraction precision audit:</strong> stratified human review of extracted granular skills by source type and skill family.</li>
+<li><strong>False rejection audit:</strong> sample rejected candidates to estimate missed skills.</li>
+<li><strong>Normalization audit:</strong> review same-skill merges, parent-child near misses, and related-but-distinct pairs.</li>
+<li><strong>Canonical coherence audit:</strong> inspect oversized or low-coherence groups.</li>
+<li><strong>Curriculum instruction-depth audit:</strong> validate whether evidence mode labels correspond to actual instructional use.</li>
+<li><strong>Stability audit:</strong> rerun selected samples to test sensitivity to model version, chunking, and prompt updates.</li>
+</ol>
+<p>Recommended public reporting metrics:</p>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Definition</th></tr></thead><tbody><tr><td>Granular extraction precision</td><td>Share of sampled extracted skills judged valid and evidenced</td></tr><tr><td>False rejection rate</td><td>Share of sampled rejected candidates that should have been retained</td></tr><tr><td>Normalization precision</td><td>Share of sampled merges judged true same-skill equivalences</td></tr><tr><td>Canonical coherence</td><td>Share of members judged to belong under the canonical label</td></tr><tr><td>Instruction-depth agreement</td><td>Human agreement with mode label: taught/practiced/assessed/mentioned</td></tr><tr><td>Cross-run stability</td><td>Similarity of canonical outputs across repeat runs</td></tr><tr><td>Source lineage completeness</td><td>Share of public claims traceable to source evidence</td></tr></tbody></table></div>
+<h2 id="6-6-limitations">6.6 Limitations</h2>
+<p>This system should be pressure-tested around known weaknesses.</p>
+<h3 id="job-posting-limitations">Job posting limitations</h3>
+<p>Job descriptions are not perfect demand data. They can be stale, inflated, copied across roles, written by HR rather than supervisors, or biased toward formal qualifications over tacit work. The system mitigates this by de-duplicating postings, scope filtering, preserving source evidence, and aggregating across employers rather than treating each posting as ground truth.</p>
+<h3 id="curriculum-limitations">Curriculum limitations</h3>
+<p>Curriculum documents do not always represent actual instruction. Some skills are taught informally but absent from documents; others appear in documents but are not meaningfully taught. Instruction-depth scoring reduces this risk but does not eliminate it. Human validation with instructors remains necessary.</p>
+<h3 id="llm-limitations">LLM limitations</h3>
+<p>Local LLMs can hallucinate, over-normalize, under-normalize, or misclassify skills. The pipeline mitigates this through constrained prompts, JSON schemas, evidence requirements, type tagging, pairwise adjudication, graph coherence checks, repair loops, and human audits. Model outputs should be treated as structured inferences, not facts.</p>
+<h3 id="credential-matching-limitations">Credential matching limitations</h3>
+<p>Credential descriptions vary widely in specificity. A credential may imply a skill without explicitly naming it, or may list broad competencies that are difficult to map to granular skills. For public reporting, the system should distinguish between <strong>confirmed</strong>, <strong>probable</strong>, and <strong>candidate</strong> credential matches.</p>
+<h3 id="generalizability-limitations">Generalizability limitations</h3>
+<p>The architecture is intended to generalize across domains, but each new domain requires validation. Healthcare, construction, software, energy, maritime, and advanced manufacturing have different terminology, regulatory structures, and credentialing ecosystems.</p>
+<hr />
+</section>
+
+    </main>
+  </div>
+</body>
+</html>

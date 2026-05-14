@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The approach: a live, local, evidence-first skill inference platform | SkillCurrent</title>
+  <meta name="description" content="A live, evidence-first platform for comparing employer skill demand, curriculum skill supply, and credential pathways" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">SkillCurrent</a>
+      <div class="header-meta">
+        <span>Working publication draft for GitHub Pages</span>
+        <span>Updated 2026-05-14</span>
+      </div>
+      <nav class="site-nav" aria-label="Primary"><a href="index.html">Home</a><a href="premise.html">1. Premise</a><a href="opportunity-gap.html">2. Opportunity Gap</a><a href="approach.html" class="active">3. Approach</a><a href="results.html">4. Results</a><a href="dashboard.html">Dashboard</a><a href="implications.html">5. Implications</a><a href="methodology.html">6. Methodology</a><a href="site-structure.html">7. Site Structure</a><a href="overclaim.html">8. Overclaim</a><a href="work-plan.html">9. Work Plan</a><a href="references.html">References</a></nav>
+    </header>
+    <main class="page-content">
+      
+<section class="hero compact">
+  <div class="hero-copy">
+    <p class="eyebrow">Publication section</p>
+    <h1>The approach: a live, local, evidence-first skill inference platform</h1>
+  </div>
+</section>
+<section class="content-block">
+  <h2 id="3-1-summary-of-the-approach">3.1 Summary of the approach</h2>
+<p>SkillCurrent is a local inference platform that processes two primary source types:</p>
+<ol>
+<li><strong>Employer job descriptions</strong> from a defined industry ecosystem.</li>
+<li><strong>Curriculum documents</strong> from training providers and educational programs.</li>
+</ol>
+<p>Both are passed through the same final staged skill extraction algorithm so that demand-side skills and supply-side skills are represented in the same vocabulary and hierarchy.</p>
+<p>The output is a set of linked artifacts:</p>
+<pre><code class="language-text">
+source document
+  → evidence span
+  → granular skill
+  → normalized skill
+  → canonical skill
+  → skill family
+  → credential candidate
+  → provider / program pathway
+</code></pre>
+<p>The core methodological principle is simple:</p>
+<blockquote>
+<p>Extract only what is evidenced, normalize only what is semantically equivalent, and build higher-level groupings only from lower-level evidence.</p>
+</blockquote>
+<h2 id="3-2-why-local-on-premises-inference-is-a-design-requirement">3.2 Why local/on-premises inference is a design requirement</h2>
+<p>The system is designed for on-premises deployment because the inputs can include proprietary curriculum, employer-specific job intelligence, supply-chain mapping, and regional strategy documents. Sending those materials to external APIs would create governance, data-sharing, and intellectual-property concerns. Local inference also improves reproducibility: the model, prompts, checkpoints, configuration, and data version can be stored with each run.</p>
+<p>The current implementation uses local open models for language inference and embeddings. The working stack is intentionally pragmatic rather than maximalist: a model large enough to reason over skill boundaries, plus embeddings and graph methods to reduce the number of expensive semantic decisions. The governing tradeoff is not “largest model wins.” It is <strong>defensible output per unit of local compute</strong>.</p>
+<h2 id="3-3-the-algorithm-at-a-high-level">3.3 The algorithm at a high level</h2>
+<p>The final algorithm used for job descriptions and curriculum data follows an evidence-first, multi-layer architecture:</p>
+<ol>
+<li><strong>Ingest and segment source text.</strong> Source documents are cleaned, chunked, and assigned source metadata.</li>
+<li><strong>Extract granular skill candidates.</strong> The local LLM extracts skill-like units only when supported by an evidence span.</li>
+<li><strong>Reject weak or non-skill candidates.</strong> Topic labels, procedural fragments, vague abstractions, examples, and meta-instructions are quarantined or rejected.</li>
+<li><strong>Normalize phrasing.</strong> Equivalent phrasings are normalized into clean verb-object skill statements.</li>
+<li><strong>Retrieve candidate matches.</strong> Embeddings identify likely neighbors, but do not decide equivalence.</li>
+<li><strong>Adjudicate semantic equivalence.</strong> The LLM decides whether candidate pairs are same-skill, related-but-distinct, parent-child, or unrelated.</li>
+<li><strong>Build normalized-skill graphs.</strong> Graph structure preserves relations and prevents one-shot global clustering from creating catch-all categories.</li>
+<li><strong>Induce canonical skills and families.</strong> Canonicals and families are created from local coherent neighborhoods, with merge audits and coherence gates.</li>
+<li><strong>Validate and repair.</strong> Oversized, incoherent, generic, or cross-domain clusters are flagged for targeted repair rather than full reruns.</li>
+<li><strong>Publish aggregate outputs.</strong> Public outputs show aggregate skill demand, curriculum coverage, instruction depth, and credential alignment while protecting source documents.</li>
+</ol>
+<p>This architecture deliberately separates <strong>retrieval</strong> from <strong>semantic judgment</strong>. Embeddings are used to find plausible neighbors; LLMs adjudicate meaning; graph structure preserves lineage. This is important because embeddings alone can collapse unrelated skills that share generic verbs or nearby context.</p>
+<h2 id="3-4-why-the-same-algorithm-must-process-curriculum-and-job-descriptions">3.4 Why the same algorithm must process curriculum and job descriptions</h2>
+<p>The central methodological requirement is an apples-to-apples comparison. If job descriptions are processed with one extraction method and curricula with another, observed gaps may reflect pipeline artifacts rather than true workforce alignment gaps. For that reason, the final job-description skill extraction workflow is used as the common algorithm for both datasets.</p>
+<p>The curriculum side adds an additional evidence dimension: <strong>instructional mode</strong>. A skill can be identified as explicitly taught, guided, independently practiced, assessed, or merely mentioned. This lets the results section distinguish “coverage” from “credential readiness.” A curriculum may mention robotics, for example, without providing enough practice or assessment evidence to support a credential claim.</p>
+<h2 id="3-5-positioning-relative-to-existing-work">3.5 Positioning relative to existing work</h2>
+<p>Skill extraction from job postings is now a recognized NLP research area. Senger et al. describe skill extraction and classification from job postings as core tasks in computational job market analysis and note the need for clearer datasets and terminology.<sup class="footnote-ref">senger_2024</sup> Course-Skill Atlas demonstrates the adjacent education-side problem: systematically inferring skills from course syllabi at national scale to understand how higher education contributes to workforce skill development.<sup class="footnote-ref">course_skill_atlas</sup></p>
+<p>SkillCurrent differs from these efforts in five ways:</p>
+<ol>
+<li>It compares <strong>job descriptions and curriculum documents</strong> using a common pipeline.</li>
+<li>It operates locally to handle proprietary curriculum and regional employer intelligence.</li>
+<li>It preserves <strong>evidence lineage</strong> from every skill back to source text.</li>
+<li>It scores <strong>instructional depth</strong>, not just skill presence.</li>
+<li>It is designed as a <strong>live dashboard publication</strong>, not only a static dataset.</li>
+</ol>
+<h2 id="3-6-dashboard-and-publication-architecture">3.6 Dashboard and publication architecture</h2>
+<p>The GitHub website should be built as a static publication with dynamic charts generated from versioned data artifacts. Recommended implementation:</p>
+<pre><code class="language-text">
+skillcurrent-site/
+  README.md
+  index.md
+  methods.md
+  results.md
+  dashboard.md
+  data-dictionary.md
+  limitations.md
+  references.md
+  assets/
+    figures/
+    html/
+  data/
+    public/
+      skill_families_summary.csv
+      canonical_skill_demand.csv
+      curriculum_instruction_depth.csv
+      credential_alignment_summary.csv
+      run_metadata.json
+  scripts/
+    build_site.py
+    validate_public_data.py
+</code></pre>
+<p>Recommended site stack:</p>
+<ul>
+<li><strong>Quarto</strong> if the team wants paper-like narrative, citations, and executable notebooks.</li>
+<li><strong>GitHub Pages + static HTML/Plotly/D3</strong> if the main goal is a lightweight public dashboard.</li>
+<li><strong>Jekyll</strong> only if the team wants a traditional GitHub Pages blog/docs structure.</li>
+</ul>
+<p>Recommended publication rule:</p>
+<blockquote>
+<p>Keep raw curriculum, raw job descriptions, and employer-sensitive excerpts out of the public repository. Publish only aggregate skill counts, de-identified evidence examples where permitted, methodology, model cards, run metadata, and interactive charts.</p>
+</blockquote>
+<hr />
+</section>
+
+    </main>
+  </div>
+</body>
+</html>
