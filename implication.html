@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Implication | Inference Dashboard</title>
+  <meta name="description" content="A live, evidence-first platform for comparing employer skill demand, curriculum skill supply, and credential pathways" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <div class="site-frame">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Inference Dashboard Home">
+        <span>Inference</span>
+        <span>Dashboard</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary"><a href="opportunity.html">The Opportunity</a><a href="approach.html">The Approach</a><a href="implication.html" class="active">The Implication</a></nav>
+    </header>
+    <main class="site-main">
+      
+<section class="page-head">
+  <p class="kicker">Publication section</p>
+  <h1>The Implication</h1>
+  <p class="page-intro">The results are presented as outcomes first, with figures woven directly into the argument, and then extended into the broader implications for workforce infrastructure.</p>
+</section>
+
+<section class="content-section" id="outcome-demand">
+  <h2>5.1 Employer demand signal</h2>
+  <div class="prose">
+    <p>The demand-side analysis begins with active job descriptions from the target employer ecosystem. After scope filtering and text enrichment, the pipeline extracts skill evidence from job descriptions, normalizes equivalent phrasing, and aggregates demand by canonical skill and skill family.</p>
+<p>The demand-side signal should be interpreted as a structured view of employer language, not a full census of all workforce needs. Job descriptions capture hiring-visible skills. They underrepresent tacit skills, internal incumbent-worker gaps, and skills taught informally on the job. They may overrepresent generic requirements repeated across templates. For that reason, the pipeline includes scope filters, boilerplate rejection, skill typing, coherence gates, and source lineage checks.</p>
+<p>The most analytically useful outputs are not simply the most frequent skills. They are:</p>
+<ul>
+<li>skills with high demand across multiple employers;</li>
+<li>skills concentrated in strategically important employer tiers;</li>
+<li>skills that appear across multiple job families;</li>
+<li>skills with high demand but weak curriculum or credential coverage;</li>
+<li>emerging technical skills with low current training coverage but strong evidence in job descriptions.</li>
+</ul>
+<figure class="figure-block" id="figure-1">
+  <figcaption>
+    <span class="figure-label">Figure 1: Reading the employer network around Electric Boat in Connecticut</span>
+    <p>The demand story starts with the structure of the regional ecosystem itself: the network anchors the later skill evidence in a specific Connecticut defense and maritime labor market.</p>
+  </figcaption>
+  <div class="figure-media"><a class="zoomable" href="assets/viz/jd/09a22_recursive_hub_spoke_terminal_core_split.png" data-lightbox-src="assets/viz/jd/09a22_recursive_hub_spoke_terminal_core_split.png" data-lightbox-alt="Employer network graph for Electric Boat in Connecticut"><img src="assets/viz/jd/09a22_recursive_hub_spoke_terminal_core_split-display.png" alt="Employer network graph for Electric Boat in Connecticut" loading="lazy" /></a></div>
+</figure>
+
+<figure class="figure-block" id="figure-2">
+  <figcaption>
+    <span class="figure-label">Figure 2: Aggregating job-description demand into a canonical hierarchy</span>
+    <p>The hierarchy view shows how many differently worded job-description fragments are normalized into a smaller, interpretable demand structure.</p>
+  </figcaption>
+  <div class="figure-media"><iframe src="assets/viz/jd/05_hierarchy_sunburst.html" title="Canonical demand hierarchy from job descriptions" loading="lazy"></iframe><p class="figure-open"><a href="assets/viz/jd/05_hierarchy_sunburst.html" target="_blank" rel="noopener">Open interactive figure</a></p></div>
+</figure>
+
+<figure class="figure-block" id="figure-3">
+  <figcaption>
+    <span class="figure-label">Figure 3: Weighting demand by employer tier</span>
+    <p>This figure distinguishes broad hiring visibility from demand concentrated in the most strategically important employers in the Connecticut network.</p>
+  </figcaption>
+  <div class="figure-media"><a class="zoomable" href="assets/viz/jd/01_canonical_demand_by_tier.png" data-lightbox-src="assets/viz/jd/01_canonical_demand_by_tier.png" data-lightbox-alt="Canonical demand by employer tier"><img src="assets/viz/jd/01_canonical_demand_by_tier-display.png" alt="Canonical demand by employer tier" loading="lazy" /></a></div>
+</figure>
+
+  </div>
+</section>
+
+<section class="content-section" id="outcome-curriculum">
+  <h2>5.2 Curriculum signal</h2>
+  <div class="prose">
+    <p>The curriculum-side analysis applies the same extraction and normalization logic to training materials. The critical difference is that curriculum evidence is classified by instructional mode. This allows the dashboard to distinguish skills that are actually taught and assessed from skills that appear only as context.</p>
+<p>Curriculum coverage should not be interpreted as binary. A skill may be present but weakly supported. A training program that explicitly teaches and assesses blueprint reading is different from a program that mentions drawings in a safety discussion. For credentialing, the strongest claims should come from skills with direct evidence of practice and assessment.</p>
+<p>This method can also identify underused curriculum assets. A program may already teach a skill demanded by employers, but the evidence may be buried in documents that are not visible to learners, employers, or credentialing bodies. In that case, the intervention is not necessarily new curriculum development; it may be better documentation, assessment alignment, modularization, or credential packaging.</p>
+<figure class="figure-block" id="figure-4">
+  <figcaption>
+    <span class="figure-label">Figure 4: Mapping curriculum evidence into the shared skill hierarchy</span>
+    <p>The curriculum hierarchy makes visible where instructional material aligns with the same vocabulary used to summarize employer demand.</p>
+  </figcaption>
+  <div class="figure-media"><iframe src="assets/viz/curriculum/02_sunburst_skill_family_canonical_granular.html" title="Curriculum hierarchy from skill family to canonical to granular" loading="lazy"></iframe><p class="figure-open"><a href="assets/viz/curriculum/02_sunburst_skill_family_canonical_granular.html" target="_blank" rel="noopener">Open interactive figure</a></p></div>
+</figure>
+
+<figure class="figure-block" id="figure-5">
+  <figcaption>
+    <span class="figure-label">Figure 5: Measuring instructional depth rather than simple topic mention</span>
+    <p>The heatmap helps separate skills that are taught and assessed from skills that appear only as contextual mentions in curriculum material.</p>
+  </figcaption>
+  <div class="figure-media"><a class="zoomable" href="assets/viz/curriculum/03_canonical_skill_x_instruction_mode.png" data-lightbox-src="assets/viz/curriculum/03_canonical_skill_x_instruction_mode.png" data-lightbox-alt="Instruction-depth evidence by canonical skill"><img src="assets/viz/curriculum/03_canonical_skill_x_instruction_mode-display.png" alt="Instruction-depth evidence by canonical skill" loading="lazy" /></a></div>
+</figure>
+
+  </div>
+</section>
+
+<section class="content-section" id="outcome-alignment">
+  <h2>5.3 Demand and supply alignment</h2>
+  <div class="prose">
+    <p>The central dashboard view compares demand-side canonical skills from job descriptions with supply-side canonical skills from curriculum.</p>
+<p><strong>Proposed core metric: Skill Gap Pressure</strong></p>
+
+<div class="display-math">
+\[
+\operatorname{GapPressure}(\mathrm{skill}) =
+\operatorname{DemandIntensity}(\mathrm{skill})
+\times \operatorname{StrategicWeight}(\mathrm{skill})
+\times \left(1-\operatorname{CurriculumCoverage}(\mathrm{skill})\right)
+\times \left(1-\operatorname{CredentialCoverage}(\mathrm{skill})\right)
+\]
+</div>
+
+<p>Where:</p>
+<ul>
+<li><strong>Demand Intensity</strong> is based on job count, employer count, and source frequency.</li>
+<li><strong>Strategic Weight</strong> can include employer tier, supply-chain position, defense relevance, or regional priority.</li>
+<li><strong>Curriculum Coverage</strong> is weighted by instructional mode, with assessed and practiced skills weighted higher than mention-only evidence.</li>
+<li><strong>Credential Coverage</strong> reflects whether a recognizable credential or micro-credential validates the skill.</li>
+</ul>
+<p>This should be presented as a prioritization score, not an absolute truth. It is meant to guide review, not replace expert judgment.</p>
+<figure class="figure-block" id="figure-6">
+  <figcaption>
+    <span class="figure-label">Figure 6: Comparing demand concentration across employer tiers and families</span>
+    <p>The tier-demand heatmaps provide a compact comparative view of where employer-weighted demand is strongest across the published hierarchy.</p>
+  </figcaption>
+  <div class="figure-media"><a class="zoomable" href="assets/viz/jd/04_tier_demand_heatmaps.png" data-lightbox-src="assets/viz/jd/04_tier_demand_heatmaps.png" data-lightbox-alt="Tier demand heatmaps"><img src="assets/viz/jd/04_tier_demand_heatmaps-display.png" alt="Tier demand heatmaps" loading="lazy" /></a></div>
+</figure>
+
+<figure class="figure-block" id="figure-7">
+  <figcaption>
+    <span class="figure-label">Figure 7: Navigating skill combinations through the hierarchy</span>
+    <p>This interactive hierarchy view is placed here because it shows how the combined skill structure can be read once demand and supply have both been translated into the same language layer.</p>
+  </figcaption>
+  <div class="figure-media"><iframe src="assets/viz/jd/10_skill_combination_hierarchy.html" title="Skill combination hierarchy" loading="lazy"></iframe><p class="figure-open"><a href="assets/viz/jd/10_skill_combination_hierarchy.html" target="_blank" rel="noopener">Open interactive figure</a></p></div>
+</figure>
+
+  </div>
+</section>
+
+<section class="content-section" id="outcome-credential">
+  <h2>5.4 Credential and instructional readiness</h2>
+  <div class="prose">
+    <p>The credential layer should answer four questions:</p>
+<ol>
+<li>Which high-demand skills already map to recognized credentials?</li>
+<li>Which skills are taught but not credentialed?</li>
+<li>Which credentials exist but are not clearly connected to local demand?</li>
+<li>Which high-pressure gaps are best addressed by micro-credentials, apprenticeships, incumbent-worker modules, or full program redesign?</li>
+</ol>
+<p>Credential matching should remain conservative. A credential should not be treated as covering a skill unless there is explicit evidence in its description, competency list, assessment objectives, or linked standards. Keyword overlap alone is insufficient.</p><p>Instruction mode is the bridge from skill extraction to credential readiness. A credential claim is strongest when curriculum evidence shows that a skill is:</p>
+<ol>
+<li>explicitly taught,</li>
+<li>practiced with guidance,</li>
+<li>practiced independently,</li>
+<li>assessed with observable criteria.</li>
+</ol>
+<p>A weak signal is a skill that appears only as a mention, example, heading, or safety aside.</p>
+<p>The instruction-depth breakdown should be used to identify where a training provider already has the ingredients for a credential and where it has only topical exposure. This distinction is essential for employers. Employers do not merely need to know that a curriculum includes “metrology”; they need to know whether learners actually use calipers, micrometers, gauges, drawings, tolerances, and inspection documentation in assessed tasks.</p>
+<hr />
+<figure class="figure-block" id="figure-8">
+  <figcaption>
+    <span class="figure-label">Figure 8: Inspecting evidence concentration before credential mapping</span>
+    <p>The evidence-family hierarchy helps show which portions of the published demand signal are dense enough to support later credential and pathway design work.</p>
+  </figcaption>
+  <div class="figure-media"><iframe src="assets/viz/jd/08_evidence_family_sunburst.html" title="Evidence-family hierarchy for job-description skills" loading="lazy"></iframe><p class="figure-open"><a href="assets/viz/jd/08_evidence_family_sunburst.html" target="_blank" rel="noopener">Open interactive figure</a></p></div>
+</figure>
+
+  </div>
+</section>
+
+<section class="content-section" id="implications">
+  <h2>6. Implications</h2>
+  <div class="prose">
+    <h2 id="6-1-a-more-robust-trainee-to-employee-pipeline">6.1 A more robust trainee-to-employee pipeline</h2>
+<p>Inference Dashboard supports a trainee-to-employee pipeline by making training outcomes legible to employers and employer demand legible to training providers. The practical output is not just a list of “skills in demand.” It is a set of evidence-backed claims:</p>
+<ul>
+<li>This skill is requested by employers.</li>
+<li>This curriculum teaches it.</li>
+<li>This instructional evidence supports the claim.</li>
+<li>This credential validates it or could be designed to validate it.</li>
+<li>This provider can deliver it.</li>
+</ul>
+<p>That chain is what allows a learner, employer, and training partner to talk about the same capability without relying on vague labels.</p>
+<h2 id="6-2-less-friction-in-aligning-desired-skills-with-trained-skills">6.2 Less friction in aligning desired skills with trained skills</h2>
+<p>The main value of a shared language layer is reducing translation cost. Employers often express demand in job-description language. Curriculum designers express supply in course and outcome language. Credentialing bodies express validation in standards and competency language. Learners experience all of this as a confusing pathway problem.</p>
+<p>A live skill layer lowers this friction by creating a common unit of comparison. It does not eliminate the need for human judgment. Instead, it makes the human review more focused: reviewers can inspect a skill, see its source evidence, view its curriculum coverage, and decide whether the proposed alignment is legitimate.</p>
+<h2 id="6-3-faster-assessment-of-opportunity-gaps-across-industries-and-regions">6.3 Faster assessment of opportunity gaps across industries and regions</h2>
+<p>Because the pipeline is domain-agnostic at the prompt and architecture level, the same approach can be deployed in another region or industry. The data will change; the method should not need to be rebuilt. That matters for scalability. A workforce board or university center should be able to run the method on healthcare, clean energy, construction, IT, maritime, or aerospace datasets and produce comparable demand-supply-credential maps.</p>
+<p>The claim should be framed carefully: the method is <strong>industry-agnostic</strong>, but not <strong>validation-free</strong>. Each new domain needs evaluation for extraction precision, false merges, domain-specific terminology, and source bias.</p>
+<h2 id="6-4-new-roles-for-universities-and-public-private-partnerships">6.4 New roles for universities and public-private partnerships</h2>
+<p>The project supports a model in which universities function as workforce intelligence infrastructure. They can host local inference systems, maintain evidence standards, support validation, coordinate with training providers, and publish living dashboards. This aligns with broader public-private models in advanced manufacturing where government, academia, and industry collaborate to accelerate technology adoption and workforce development.<sup class="footnote-ref"><a href="references.html#ref-mfgusa_report_to_congress">mfgusa_report_to_congress</a></sup></p>
+<p>A university-led platform also gives credibility to credentials, especially when the credential is connected to evidence from curriculum, job demand, and assessment. The goal is not to centralize all training in the university. The goal is to let universities help the ecosystem coordinate.</p>
+<h2 id="6-5-equity-and-access-implications">6.5 Equity and access implications</h2>
+<p>A skill-first language layer can support equity only if it is designed carefully. OECD’s skills-first work emphasizes that skills-first approaches can improve transparency and matching, but implementation challenges remain and public policy matters.<sup class="footnote-ref"><a href="references.html#ref-oecd_skills_first">oecd_skills_first</a></sup> The risk is that skill dashboards can become another opaque sorting mechanism. The mitigation is to make skill evidence, pathway options, credential requirements, and training availability transparent to learners, not only to employers and institutions.</p>
+<p>A learner-facing version of Inference Dashboard should answer:</p>
+<ul>
+<li>What skills am I learning?</li>
+<li>How are those skills assessed?</li>
+<li>Which employers ask for them?</li>
+<li>Which credentials validate them?</li>
+<li>Which adjacent skills would improve mobility?</li>
+<li>Which training option is closest, shortest, lowest-cost, or most stackable?</li>
+</ul>
+  </div>
+</section>
+
+
+      <nav class="page-pager" aria-label="Page flow"><a class="pager-link prev" href="approach.html">Previous: The Approach</a><a class="pager-link next" href="references.html">Continue: References</a></nav>
+    </main>
+    <footer class="site-footer">
+      <p><a href="connect.html">Connect</a></p>
+      <p>Copyright 2026<br />The Center for Higher Education and Workforce at Northeastern University</p>
+    </footer>
+  </div>
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" type="button" aria-label="Close image viewer">Close</button>
+    <img class="lightbox-image" alt="" />
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

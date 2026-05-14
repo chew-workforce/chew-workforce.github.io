@@ -1,12 +1,14 @@
 # chew-workforce.github.io
 
-Static GitHub Pages site for the first public release of **SkillCurrent**, a live publication on workforce demand, curriculum supply, and credential pathways.
+Static GitHub Pages site for the first public release of **Inference Dashboard**, a live publication on workforce demand, curriculum supply, and credential pathways.
 
 ## Structure
 
-- `content/skillcurrent_publication_draft.md`: primary source narrative for the publication.
-- `scripts/build_site.py`: local generator that converts the markdown draft into section pages and copies selected visual assets into the repo.
-- `assets/site.css`: site styling.
+- `content/skillcurrent_publication_live.md`: primary editable source for the staged publication site.
+- `content/skillcurrent_publication_draft.md`: original longer working draft retained as the baseline source.
+- `scripts/build_site.py`: local generator that converts the markdown source into the publication pages and copies selected visual assets into the repo.
+- `assets/site.css`: publication styling.
+- `assets/site.js`: lightweight client-side interactions, including PNG zoom.
 - `assets/viz/`: checked-in dashboard assets copied from the local analysis outputs.
 
 ## Rebuild
@@ -17,7 +19,17 @@ Run:
 python3 scripts/build_site.py
 ```
 
-The script regenerates `index.html`, the section pages, `dashboard.html`, and refreshes the copied visualization assets.
+The script regenerates the staged publication pages from `content/skillcurrent_publication_live.md` when present, and refreshes the copied visualization assets.
+
+## Preview
+
+Run:
+
+```bash
+bash scripts/serve_preview.sh
+```
+
+Then open `http://localhost:4173`.
 
 ## Push workflow
 
