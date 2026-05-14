@@ -18,3 +18,19 @@ python3 scripts/build_site.py
 ```
 
 The script regenerates `index.html`, the section pages, `dashboard.html`, and refreshes the copied visualization assets.
+
+## Push workflow
+
+This clone is intended to avoid the shared macOS keychain GitHub credential. Use the local helper to push:
+
+```bash
+bash scripts/push_with_account.sh
+```
+
+Optional explicit account selection:
+
+```bash
+bash scripts/push_with_account.sh chew-workforce
+```
+
+If no account is provided, the script prompts for one and then runs an interactive HTTPS push with repository-local credential settings.
