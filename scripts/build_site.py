@@ -60,9 +60,6 @@ SOURCE_ASSETS = {
         "04_ranked_canonical_skill_support.png": Path(
             "../../curriculum_to_skills/viz_outputs_passBCD_v2_20260324_012657/04_ranked_canonical_skill_support.png"
         ),
-        "DNU_01_alluvial_granular_to_canonical_to_family.png": Path(
-            "../../curriculum_to_skills/viz_outputs_passBCD_v2_20260324_012657/DNU_01_alluvial_granular_to_canonical_to_family.png"
-        ),
     },
 }
 
